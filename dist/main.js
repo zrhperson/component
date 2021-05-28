@@ -15,7 +15,7 @@
   \*****************/
 /***/ (() => {
 
-eval("var component = create222(Cls, null);\n\n//# sourceURL=webpack://component/./main.js?");
+eval("var component1 = 111;\nconsole.log(component1);\nvar component22 = create(Cls, null);\n\n//# sourceURL=webpack://component/./main.js?");
 
 /***/ })
 
