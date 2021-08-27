@@ -13,6 +13,12 @@ module.exports = {
                     ]
                 }
             }
+        },
+        {
+            test: /\.vue$/,
+            use: {
+                loader: require.resolve('./vue/vue-loader.js')
+            }
         }
       ]
     },
