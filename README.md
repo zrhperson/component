@@ -1,1 +1,1 @@
-# 组件化 - zhourh
+# 组件化 - component
