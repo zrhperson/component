@@ -12,10 +12,7 @@ class MyComponent extends Component {
 
 let component = (
     <MyComponent>
-        MyComponent - Parent
-        <MyComponent>child1</MyComponent>
-        <MyComponent>child2</MyComponent>
-        <div>child3<div>child3-child1<div>child3-child1-child1<div>child3-child1-child1-child1</div></div></div></div>
+        MyComponent - child
     </MyComponent>
 );
 

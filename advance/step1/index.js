@@ -33,3 +33,6 @@ let component = (
         <div></div>
     </Parent>
 );
+
+
+console.log("JSX=====>", component)

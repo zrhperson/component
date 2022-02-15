@@ -10,16 +10,15 @@ function create(Cls, attributes, ...children) {
     for (let name in attributes) {
         o.setAttribute(name, attributes[name])
     }
-
-    console.log(o)
     let each = (childs) => {
         for (let child of childs) {
-            if (typeof child === 'object' && child instanceof Array) {
-                each(child)
-                continue;
-            }
             if (typeof child === 'string') {
                 child = new Text(child)
+            }
+            if (typeof child === 'object' && child instanceof Array) {
+                // 只需要处理第一层级
+                // each(child)
+                // continue;
             }
 
             o.appendChild(child)
@@ -30,7 +29,36 @@ function create(Cls, attributes, ...children) {
 }
 
 class Component {
+    constructor() {
+        this.root = document.createElement('div')
+        this.children = [];
+        this.attributes = new Map();
+    }
+    
+    setAttribute(name, value) {
+        this.attributes.set(name, value);
+    }
+    
+    appendChild(child) {
+        this.children.push(child);
+    }
+    
+    mountTo(parent) {
+        parent.appendChild(this.root);
+        this.slot = <div></div>;
+        for (let child of this.children) {
+          this.slot.appendChild(child);
+        }
+        this.render().mountTo(parent);
 
+
+        // parent.appendChild(this.root);
+        // for (let child of this.children) {
+        //     console.log(child)
+        //     child.mountTo(this.root)
+        // }
+        // this.render().mountTo(this.root);
+    }
 }
 
 class Wrapper {
